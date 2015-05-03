@@ -1,0 +1,12 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    %title= NotAnotherToDoApp
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+%body
+
+  = link_to "Not a ToDo list app", root_path
+
+  = yield
