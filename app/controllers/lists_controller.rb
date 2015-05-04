@@ -7,6 +7,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    @todos = @list.todos.all
+    @todo = @list.todos.build
   end
 
   def create

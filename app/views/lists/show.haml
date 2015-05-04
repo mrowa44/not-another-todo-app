@@ -1,2 +1,10 @@
 %h1= @list.title
+
+%table
+- @todos.each do |todo|
+  %td= display_todo_state(todo.state)
+  %td= todo.task
+  %br
+
+= render 'todos/form'
 = button_to 'Change list title', edit_list_path(@list)
