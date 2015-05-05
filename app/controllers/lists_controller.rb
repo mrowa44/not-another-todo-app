@@ -1,9 +1,10 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:edit, :show, :update,  :destroy]
+  before_action :authenticate_user!
 
   def index
-    @lists = List.all
-    @list = List.new
+    @lists = current_user.lists.all
+    @list = current_user.lists.build
   end
 
   def show
@@ -12,7 +13,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.build(list_params)
     if @list.save
       flash[:success] = 'List successfully created!'
       redirect_to @list
@@ -41,7 +42,7 @@ class ListsController < ApplicationController
   private
 
     def set_list
-      @list = List.find(params[:id])
+      @list = current_user.lists.find(params[:id])
     end
    
     def list_params
