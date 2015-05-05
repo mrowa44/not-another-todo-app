@@ -2,8 +2,8 @@
 
 %table
 - @todos.each do |todo|
-  %td= display_todo_state(todo.state)
-  %td= todo.task
+  %td= link_to display_todo_state(todo.state), list_todo_path(@list, todo), method: :delete
+  %td= link_to todo.task, list_todo_path(@list, todo), method: :delete
   %br
 
 = render 'todos/form'

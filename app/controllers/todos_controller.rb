@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
-  before_action :set_list, only: [:edit, :update, :create]
-  before_action :set_todo, only: [:edit, :update]
+  before_action :set_list, only: [:update, :create, :destroy]
+  before_action :set_todo, only: [:update, :destroy]
 
   def create
     @todo = @list.todos.build(todo_params)
@@ -11,16 +11,17 @@ class TodosController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @todo.update(todo_params)
       flash[:success] = "To do updated!"
       redirect_to @list
     else
-      render :edit
     end
+  end
+
+  def destroy
+    @todo.destroy
+    redirect_to @list
   end
 
   private
