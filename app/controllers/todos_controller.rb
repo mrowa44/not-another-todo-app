@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
-  before_action :set_list, only: [:update, :create, :destroy]
-  before_action :set_todo, only: [:update, :destroy]
+  before_action :set_list, only: [:update, :create, :destroy, :complete, :uncomplete]
+  before_action :set_todo, only: [:update, :destroy, :complete, :uncomplete]
 
   def create
     @todo = @list.todos.build(todo_params)
@@ -17,6 +17,16 @@ class TodosController < ApplicationController
       redirect_to @list
     else
     end
+  end
+
+  def complete
+    @todo.update_attribute(:state, true)
+    redirect_to @list
+  end
+
+  def uncomplete
+    @todo.update_attribute(:state, false)
+    redirect_to @list
   end
 
   def destroy

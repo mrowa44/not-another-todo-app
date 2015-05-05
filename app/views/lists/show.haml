@@ -2,8 +2,12 @@
 
 %table
 - @todos.each do |todo|
-  %td= link_to display_todo_state(todo.state), list_todo_path(@list, todo), method: :delete
-  %td= link_to todo.task, list_todo_path(@list, todo), method: :delete
+  - if todo.completed?
+    %td= link_to display_todo_state(todo.state), uncomplete_list_todo_path(@list, todo), method: :patch
+    %td= link_to todo.task, uncomplete_list_todo_path(@list, todo), method: :patch
+  - else
+    %td= link_to display_todo_state(todo.state), complete_list_todo_path(@list, todo), method: :patch
+    %td= link_to todo.task, complete_list_todo_path(@list, todo), method: :patch
   %br
 
 = render 'todos/form'

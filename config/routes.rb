@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'lists#index'
   resources :lists do
-    resources :todos
+    resources :todos do
+      member do
+        patch :complete
+        patch :uncomplete
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
