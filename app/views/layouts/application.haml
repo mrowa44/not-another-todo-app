@@ -15,10 +15,6 @@
     = button_to 'Log in', new_user_session_path, method: :get
     = button_to 'Sign up', new_user_registration_path, method: :get
 
-  - flash.each do |name, msg|
-    - if msg == 'notice' || 'success'
-      .alert.alert-success= msg
-    - else
-      .alert.alert-danger= msg
+  = render 'layouts/flash_messages'
 
   = yield
