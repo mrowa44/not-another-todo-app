@@ -17,6 +17,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'devise'
 gem 'bootstrap-sass'
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

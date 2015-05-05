@@ -31,6 +31,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
+    flash[:success] = "Todo deleted!"
     redirect_to @list
   end
 

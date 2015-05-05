@@ -1,20 +1,25 @@
 !!!
 %html{ lang: 'en' }
   %head
-    %title= NotAnotherToDoApp
-  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %title Not another todo app
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
-%body
+  %body
+    %nav.nav.navbar.navbar-default
+      = link_to "Not a todo app", root_path, class: 'navbar-brand navbar-left'
+      %ul.nav.navbar-right.btn-group
+        - if user_signed_in?
+          %li= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-danger navbar-btn'
+        - else
+          %li= button_to 'Sign up', new_user_registration_path, method: :get, class: 'btn btn-success navbar-btn'
+          %li= button_to 'Log in', new_user_session_path, method: :get, class: 'btn btn-default navbar-btn'
 
-  = link_to "Not a ToDo list app", root_path
+    = render 'layouts/flash_messages'
 
-  - if user_signed_in?
-    = button_to 'Log out', destroy_user_session_path, method: :delete
-  - else
-    = button_to 'Log in', new_user_session_path, method: :get
-    = button_to 'Sign up', new_user_registration_path, method: :get
+    .container
+      = yield
 
-  = render 'layouts/flash_messages'
-
-  = yield
+    %footer.panel-footer
+      %a{ href: "http://jrachowi.cz" } Justyna Rachowicz
+      © 2015

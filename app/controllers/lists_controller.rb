@@ -8,7 +8,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @todos = @list.todos.all
+    @todos = @list.todos.all.order(state: :asc)
     @todo = @list.todos.build
   end
 
