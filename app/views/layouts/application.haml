@@ -2,24 +2,28 @@
 %html{ lang: 'en' }
   %head
     %title Not another todo app
+    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
+    = favicon_link_tag 'favicon.png'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = csrf_meta_tags
+    = csrf_meta_tags
+
   %body
     %nav.nav.navbar.navbar-default
-      = link_to "Not a todo app", root_path, class: 'navbar-brand navbar-left'
-      %ul.nav.navbar-right.btn-group
+      .navbar-left.navbar-brand
+        = link_to "Not a todo app", root_path
+      %ul.navbar-right.nav.navbar-nav.btn-group
         - if user_signed_in?
-          %li= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-danger navbar-btn'
+          %li= button_to 'Log out', destroy_user_session_path, class: 'btn btn-danger navbar-btn', method: :delete
         - else
-          %li= button_to 'Sign up', new_user_registration_path, method: :get, class: 'btn btn-success navbar-btn'
-          %li= button_to 'Log in', new_user_session_path, method: :get, class: 'btn btn-default navbar-btn'
+          %li= button_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn', method: :get
+          %li= button_to 'Sign up', new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get
 
     = render 'layouts/flash_messages'
 
     .container
       = yield
 
-    %footer.panel-footer
+    %footer.panel-footer.container
       %a{ href: "http://jrachowi.cz" } Justyna Rachowicz
       © 2015

@@ -1,11 +1,9 @@
 %h1 All todo lists
 
-%table.lists
+%ul.list-group
   - @lists.each do |list|
-    %tr
-      %td= link_to list.title, list_path(list), method: :get
-      %td
-        = link_to list_path(list), method: :delete, data: { confirm: 'Are you sure?' } do
-          %i.fa.fa-trash-o
-
+    %li.list-group-item
+      = link_to list.title, list_path(list), method: :get
+      = link_to list_path(list), method: :delete, data: { confirm: 'Are you sure?' } do
+        %i.fa.fa-trash-o
 = render 'form'

@@ -1,20 +1,19 @@
 %h1= @list.title
 
-%table
+%ul.list-group
   - @todos.each do |todo|
-    %tr
-      - if todo.completed?
-        %td= link_to display_todo_state(todo.state), uncomplete_list_todo_path(@list, todo), method: :patch
-        %td= link_to todo.task, uncomplete_list_todo_path(@list, todo), method: :patch
-        %td
-          = link_to list_todo_path(@list, todo),  method: :delete do
-            %i.fa.fa-trash-o
-      - else
-        %td= link_to display_todo_state(todo.state), complete_list_todo_path(@list, todo), method: :patch
-        %td= link_to todo.task, complete_list_todo_path(@list, todo), method: :patch
-        %td
-          = link_to list_todo_path(@list, todo),  method: :delete do
-            %i.fa.fa-trash-o
+    - if todo.completed?
+      %li.list-group-item.disabled
+        = link_to display_todo_state(todo.state), uncomplete_list_todo_path(@list, todo), method: :patch
+        %strike= link_to todo.task, uncomplete_list_todo_path(@list, todo), method: :patch
+        = link_to list_todo_path(@list, todo),  method: :delete do
+          %i.fa.fa-trash-o
+    - else
+      %li.list-group-item
+        = link_to display_todo_state(todo.state), complete_list_todo_path(@list, todo), method: :patch
+        = link_to todo.task, complete_list_todo_path(@list, todo), method: :patch
+        = link_to list_todo_path(@list, todo),  method: :delete do
+          %i.fa.fa-trash-o
 
 = render 'todos/form'
-= button_to 'Change list title', edit_list_path(@list), method: :get, class: 'btn btn-default'
+= button_to 'Change list title', edit_list_path(@list), method: :get, class: 'btn btn-default btn-list-title'

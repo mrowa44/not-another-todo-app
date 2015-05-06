@@ -1,3 +1,3 @@
 = simple_form_for([@list, @todo], url: list_todos_path(@list), method: :post, html: { class: 'form-inline' } ) do |f|
-  = f.input :task
+  = f.input :task, autofocus: true, label: false, input_html: { size: 61 }
   = f.button :submit, class: 'btn btn-primary'

@@ -1,3 +1,3 @@
 = simple_form_for @list, html: { class: 'form-inline' } do |f|
-  = f.input :title, label: 'List title'
+  = f.input :title, label: false, autofocus: true, input_html: { size: 62 }
   = f.button :submit, class: 'btn btn-primary'
