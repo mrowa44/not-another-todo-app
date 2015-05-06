@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         patch :complete
         patch :uncomplete
       end
+      collection do
+        delete :clear
+      end
     end
   end
 
