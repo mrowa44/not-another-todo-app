@@ -41,6 +41,11 @@ nav{
   .navbar-brand{
     font-size: 1.7em;
     font-weight: bold;
+    a{
+      &:hover, &:link, &:active, &:visited{
+        color: $brand-primary;
+      }
+    }
   }
   .btn{
     padding: .6em .9em;
@@ -80,4 +85,9 @@ footer{
   width: 100%;
   text-align: center;
   font-size: 0.9em;
+  a{
+    &:hover, &:active, &:link, &:visited{
+      color: $brand-primary;
+    }
+  }
 }
