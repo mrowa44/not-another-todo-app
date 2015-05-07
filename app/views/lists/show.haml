@@ -16,5 +16,9 @@
           %i.fa.fa-trash-o
 
 = render 'todos/form'
-= button_to 'Change list title', edit_list_path(@list), method: :get, class: 'btn btn-info btn-right'
-= button_to 'Clear list', clear_list_todos_path(@list, @list.todos), method: :delete, class: 'btn btn-warning btn-right'
+= button_to edit_list_path(@list), method: :get, class: 'btn btn-info btn-right' do
+  %i.fa.fa-pencil
+  Edit title
+= button_to clear_list_todos_path(@list, @list.todos), method: :delete, class: 'btn btn-warning btn-right' do
+  %i.fa.fa-th-list
+  Clear
