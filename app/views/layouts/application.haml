@@ -2,6 +2,7 @@
 %html{ lang: 'en' }
   %head
     %title Not another todo app
+    %meta{ charset: 'utf-8' }
     %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
     = favicon_link_tag 'favicon.png'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
@@ -10,14 +11,22 @@
 
   %body
     %nav.nav.navbar.navbar-default
-      .navbar-left.navbar-brand
-        = link_to "Not a todo app", root_path
-      %ul.navbar-right.nav.navbar-nav.btn-group
-        - if user_signed_in?
-          %li= button_to 'Log out', destroy_user_session_path, class: 'btn btn-danger navbar-btn', method: :delete
-        - else
-          %li= button_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn', method: :get
-          %li= button_to 'Sign up', new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get
+      .container
+        .navbar-left.navbar-brand
+          = link_to "Not a todo app", root_path
+        .navbar-header
+          %button{ :type => "button", :class => "navbar-toggle", :"data-toggle" => "collapse", :"data-target" => ".navbar-collapse" }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+        .navbar-collapse.collapse
+          %ul.navbar-right.nav.navbar-nav
+            - if user_signed_in?
+              %li= button_to 'Log out', destroy_user_session_path, class: 'btn btn-danger navbar-btn', method: :delete
+            - else
+              %li= button_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn', method: :get
+              %li= button_to 'Sign up', new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get
 
     = render 'layouts/flash_messages'
 
@@ -26,4 +35,4 @@
 
     %footer.panel-footer.container
       %a{ href: "http://jrachowi.cz" } Justyna Rachowicz
-      © 2015
+      &copy 2015
