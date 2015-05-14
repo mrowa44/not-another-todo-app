@@ -3,7 +3,9 @@
 %ul.list-group
   - @lists.each do |list|
     %li.list-group-item
-      = link_to list.title, list_path(list), method: :get
+      = link_to list_path(list), method: :get do
+        = list.title
+        %span.badge= count_undone(list.todos)
       = link_to list_path(list), method: :delete, data: { confirm: 'Are you sure?' } do
         %i.fa.fa-trash-o
 = render 'form'
