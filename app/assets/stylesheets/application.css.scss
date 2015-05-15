@@ -82,6 +82,18 @@ h1{
 .badge{
   margin-left: 1em;
 }
+.form-inline{
+  margin: 0;
+  padding: 0;
+  input{
+    width: 85%;
+    float: left;
+  }
+  .btn{
+    float: right;
+    display: inline-block;
+  }
+}
 footer{
   position: absolute;
   bottom: 0;

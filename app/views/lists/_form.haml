@@ -1,4 +1,5 @@
-= simple_form_for @list, html: { class: 'form-inline' } do |f|
-  = f.input :title, label: false, autofocus: true, input_html: { size: 71 }, placeholder: 'New list'
-  = button_tag (f.button :submit), class: 'btn btn-primary' do
-    %i.fa.fa-plus
+.form-inline
+  = simple_form_for @list do |f|
+    = f.input :title, label: false, autofocus: true, placeholder: 'New list', input_html: { size: 70 }
+    = button_tag (f.button :submit), class: 'btn btn-primary', data: { disable_with: "<i class='fa fa-spinner fa-pulse'></i>" } do
+      %i.fa.fa-plus
