@@ -18,7 +18,8 @@ class ListsController < ApplicationController
       flash[:success] = 'List successfully created!'
       redirect_to @list
     else
-      render :new
+      @lists = current_user.lists.all
+      render :index
     end
   end
 

@@ -7,7 +7,8 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to list_path(@todo.list)
     else
-      render list_path(@list)
+      @todos = @list.todos.all
+      render 'lists/show'
     end
   end
 
