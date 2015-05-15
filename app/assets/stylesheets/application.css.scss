@@ -18,6 +18,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/* custom font for brand */
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+
 $width: 600px;
 $big-font: 1.5em;
 
@@ -39,12 +42,11 @@ body{
 nav{
   padding: 10px 20px;
   .navbar-brand{
-    font-size: 1.7em;
+    font-size: 2em;
     font-weight: bold;
-    a{
-      &:hover, &:link, &:active, &:visited{
-        color: $brand-primary;
-      }
+    font-family: Varela Round;
+    a:hover, a:link, a:active, a:visited{
+      color: darken($brand-primary, 10%);
     }
   }
   .navbar-right .btn{
