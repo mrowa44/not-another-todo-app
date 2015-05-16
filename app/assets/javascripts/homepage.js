@@ -1,4 +1,4 @@
-$(document).ready(function(){
+var ready = function(){
   $('.jumbotron h2').fadeIn('slow');
   $('.jumbotron h2').removeClass('hidden');
 
@@ -21,5 +21,6 @@ $(document).ready(function(){
      $('.jumbotron ul').fadeIn("slow");
      $('.jumbotron ul').removeClass('hidden');
    },3500);
-
-});
+};
+$(document).on('page:load', ready);
+$(document).ready(ready);
