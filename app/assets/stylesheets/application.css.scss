@@ -108,3 +108,49 @@ footer{
     }
   }
 }
+.jumbotron-container{
+  max-width: $width;
+  margin: -1.4em -1em -6.5em -1em;
+}
+.jumbotron{
+  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), image-url('homepage_background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding-top: 160px;
+  padding-bottom: 200px;
+  min-height: 650px;
+  h3, h4, p{
+    text-align: center;
+  }
+  .action-buttons .btn{
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+  }
+  .btn-success{
+    border: 2.5px solid $brand-success;
+  }
+  .btn-default{
+    border: 2.5px solid $gray-lighter;
+  }
+  ul{
+    text-align: center;
+    margin-top: 2em;
+    margin-left: -2em;
+  }
+  li{
+    display: inline-block;
+    padding: .5em;
+  }
+  p, h4{
+    margin-top: 50px;
+  }
+}
+.jumbotron-content{
+  margin-top: -100px;
+}
+.hidden{
+  visibility: hidden;
+}

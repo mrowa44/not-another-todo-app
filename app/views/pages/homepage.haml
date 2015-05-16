@@ -1,0 +1,17 @@
+.jumbotron-container
+  .jumbotron
+    .jumbotron-content
+      %h2.hidden This is absolutely not
+      %h3.hidden another todo app.
+
+      %h4.hidden It's not.
+
+      %p.hidden To create your lists and todos you can:
+      %ul.action-buttons.hidden
+        %li
+          = button_to new_user_session_path, class: 'btn btn-default btn-lg', method: :get do
+            Log in
+        %li or
+        %li
+          = button_to new_user_registration_path, class: 'btn btn-success btn-lg', method: :get do
+            Sign up

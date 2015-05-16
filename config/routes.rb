@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'lists#index'
+  authenticated :user do
+    root 'lists#index'
+  end
+
+  root 'high_voltage/pages#show', :id => 'homepage', as: 'home'
 
   resources :lists do
     resources :todos do

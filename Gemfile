@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
+gem 'high_voltage'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
