@@ -45,6 +45,7 @@ nav{
     font-size: 2em;
     font-weight: bold;
     font-family: Varela Round;
+    letter-spacing: -.09em;
     a:hover, a:link, a:active, a:visited{
       color: darken($brand-primary, 10%);
     }
