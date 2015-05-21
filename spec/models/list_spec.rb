@@ -15,4 +15,10 @@ RSpec.describe List, type: :model do
     List.create(title: '')
     expect(List.count).to eq 0
   end
+
+  it '#to_param returns id and title parameterized' do
+    list = List.create(title: 'Parameterize that')
+    param_list = "#{list.id} #{list.title}".parameterize
+    expect(list.to_param).to eq(param_list)
+  end
 end
